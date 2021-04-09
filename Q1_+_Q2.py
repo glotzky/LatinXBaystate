@@ -14,9 +14,9 @@ pres2016 = pd.read_csv("/Users/Andrew/Desktop/CS506/Deliverable3/MergedMassData.
 
 pres2020 = pd.read_csv("/Users/Andrew/Desktop/CS506/Deliverable3/MergedMassData.csv")
 
-gov2014 = pd.read_csv("/Users/Andrew/Desktop/CS506/Deliverable3/Governor Demographic (Tracts) + Voting Data (Precincts) - 2014.csv")
+gov2014 = pd.read_csv("/Users/Andrew/Desktop/CS506/Deliverable3/MergedMassDataGov.csv")
 
-gov2018 = pd.read_csv("/Users/Andrew/Desktop/CS506/Deliverable3/Governor Demographic (Tracts) + Voting Data (Precincts) - 2018.csv")
+gov2018 = pd.read_csv("/Users/Andrew/Desktop/CS506/Deliverable3/MergedMassDataGov.csv")
 
 #cleaning for presidential election
 
@@ -38,7 +38,7 @@ pres2020["Cuban 2019"] = pd.to_numeric(pres2020["Cuban 2019"])
 
 pres2020["Other LatinX 2019"] = pd.to_numeric(pres2020["Other LatinX 2019"])
 
-pres2020["Total Population 2019"] = pd.to_numeric(pres2020["Total Population 2019"])
+pres2020["Total Population 2019"] = pd.to_numeric(pres2020["Total Population 2019"]) 
 
 pres2016["Democratic 2016"] = pd.to_numeric(pres2016["Democratic 2016"])
 
@@ -56,43 +56,43 @@ pres2016["Other LatinX 2016"] = pd.to_numeric(pres2016["Other LatinX 2016"])
 
 pres2016["Total Population 2016"] = pd.to_numeric(pres2016["Total Population 2016"])
 
-# #cleaning for governors election
+#cleaning for governors election
 
-# gov2014 = gov2014.replace(",", "", regex = True)
+gov2014 = gov2014.replace(",", "", regex = True)
 
-# gov2018 = gov2018.replace(",", "", regex = True)
+gov2018 = gov2018.replace(",", "", regex = True)
 
-# gov2018["Gonzalez and Palfrey (D)"] = pd.to_numeric(gov2018["Gonzalez and Palfrey (D)"])
+gov2018["Democratic 2018"] = pd.to_numeric(gov2018["Democratic 2018"])
 
-# gov2018["Baker and Polito (R)"] = pd.to_numeric(gov2018["Baker and Polito (R)"])
+gov2018["Republican 2018"] = pd.to_numeric(gov2018["Republican 2018"])
 
-# gov2018["Total Votes Cast"] = pd.to_numeric(gov2018["Total Votes Cast"])
+gov2018["Total Votes Cast 2018"] = pd.to_numeric(gov2018["Total Votes Cast 2018"])
 
-# gov2018["Estimate Mexican Population"] = pd.to_numeric(gov2018["Estimate Mexican Population"])
+gov2018["Mexican 2018"] = pd.to_numeric(gov2018["Mexican 2018"])
 
-# gov2018["Estimate Puerto Rican Population"] = pd.to_numeric(gov2018["Estimate Puerto Rican Population"])
+gov2018["Puerto Rican 2018"] = pd.to_numeric(gov2018["Puerto Rican 2018"])
 
-# gov2018["Estimate Cuban Population"] = pd.to_numeric(gov2018["Estimate Cuban Population"])
+gov2018["Cuban 2018"] = pd.to_numeric(gov2018["Cuban 2018"])
 
-# gov2018["Estimate Other Hispanic or Latino"] = pd.to_numeric(gov2018["Estimate Other Hispanic or Latino"])
+gov2018["Other LatinX 2018"] = pd.to_numeric(gov2018["Other LatinX 2018"])
 
-# gov2018["Estimate Total Population"] = pd.to_numeric(gov2018["Estimate Total Population"])
+gov2018["Total Population 2018"] = pd.to_numeric(gov2018["Total Population 2018"])
 
-# gov2014["Coakley and Kerrigan (D)"] = pd.to_numeric(gov2014["Coakley and Kerrigan (D)"])
+gov2014["Democratic 2014"] = pd.to_numeric(gov2014["Democratic 2014"])
 
-# gov2014["Baker and Polito (R)"] = pd.to_numeric(gov2014["Baker and Polito (R)"])
+gov2014["Republican 2014"] = pd.to_numeric(gov2014["Republican 2014"])
 
-# gov2014["Total Votes Cast"] = pd.to_numeric(gov2014["Total Votes Cast"])
+gov2014["Total Votes Cast 2014"] = pd.to_numeric(gov2014["Total Votes Cast 2014"])
 
-# gov2014["Estimate Mexican Population"] = pd.to_numeric(gov2014["Estimate Mexican Population"])
+gov2014["Mexican 2014"] = pd.to_numeric(gov2014["Mexican 2014"])
 
-# gov2014["Estimate Puerto Rican Population"] = pd.to_numeric(gov2014["Estimate Puerto Rican Population"])
+gov2014["Puerto Rican 2014"] = pd.to_numeric(gov2014["Puerto Rican 2014"])
 
-# gov2014["Estimate Cuban Population"] = pd.to_numeric(gov2014["Estimate Cuban Population"])
+gov2014["Cuban 2014"] = pd.to_numeric(gov2014["Cuban 2014"])
 
-# gov2014["Estimate Other Hispanic or Latino"] = pd.to_numeric(gov2014["Estimate Other Hispanic or Latino"])
+gov2014["Other LatinX 2014"] = pd.to_numeric(gov2014["Other LatinX 2014"])
 
-# gov2014["Estimate Total Population"] = pd.to_numeric(gov2014["Estimate Total Population"])
+gov2014["Total Population 2014"] = pd.to_numeric(gov2014["Total Population 2014"]) 
 
 #analyzing changes between the most recent elections for president
 
@@ -112,23 +112,22 @@ changeTotalLatinXPres = ((pres2020["Mexican 2019"] + pres2020["Puerto Rican 2019
  / pres2020["Total Population 2019"]) - ((pres2016["Mexican 2016"] + pres2016["Puerto Rican 2016"] + pres2016["Cuban 2016"] +pres2016["Other LatinX 2016"])
  / pres2016["Total Population 2016"])
 
-# #analyzing changes between most recent elections for governors
+#analyzing changes between most recent elections for governors
 
-# changeDemGov = (gov2018["Gonzalez and Palfrey (D)"] / gov2018["Total Votes Cast"]) - (gov2014["Coakley and Kerrigan (D)"] / gov2014["Total Votes Cast"])
+changeDemGov = (gov2018["Democratic 2018"] / gov2018["Total Votes Cast 2018"]) - (gov2014["Democratic 2014"] / gov2014["Total Votes Cast 2014"])
 
-# changeRepGov = (gov2018["Baker and Polito (R)"] / gov2018["Total Votes Cast"]) - (gov2014["Baker and Polito (R)"] / gov2014["Total Votes Cast"])
+changeRepGov = (gov2018["Republican 2018"] / gov2018["Total Votes Cast 2018"]) - (gov2014["Republican 2014"] / gov2014["Total Votes Cast 2014"])
 
-# changeMexGov = (gov2018["Estimate Mexican Population"] / gov2018["Estimate Total Population"]) / (gov2014["Estimate Mexican Population"] / gov2014["Estimate Total Population"])
+changeMexGov = (gov2018["Mexican 2018"] / gov2018["Total Population 2018"]) - (gov2014["Mexican 2014"] / gov2014["Total Population 2014"])
 
-# changePRGov = (gov2018["Estimate Puerto Rican Population"] / gov2018["Estimate Total Population"]) / (gov2014["Estimate Puerto Rican Population"] / gov2014["Estimate Total Population"])
+changePRGov = (gov2018["Puerto Rican 2018"] / gov2018["Total Population 2018"]) - (gov2014["Puerto Rican 2014"] / gov2014["Total Population 2014"])
 
-# changeCubanGov = (gov2018["Estimate Cuban Population"] / gov2018["Estimate Total Population"]) / (gov2014["Estimate Cuban Population"] / gov2014["Estimate Total Population"])
+changeCubanGov = (gov2018["Cuban 2018"] / gov2018["Total Population 2018"]) - (gov2014["Cuban 2014"] / gov2014["Total Population 2014"])
 
-# changeOtherLatinXGov = (gov2018["Estimate Other Hispanic or Latino"] / gov2018["Estimate Total Population"]) / (gov2014["Estimate Other Hispanic or Latino"] / gov2014["Estimate Total Population"])
+changeOtherLatinXGov = (gov2018["Other LatinX 2018"] / gov2018["Total Population 2018"]) - (gov2014["Other LatinX 2014"] / gov2014["Total Population 2014"])
 
-# changeTotalLatinXGov = ((gov2018["Estimate Mexican Population"] + gov2018["Estimate Puerto Rican Population"] + gov2018["Estimate Cuban Population"] + gov2018["Estimate Other Hispanic or Latino"])
-#  / gov2018["Estimate Total Population"]) - ((gov2014["Estimate Mexican Population"] + gov2014["Estimate Puerto Rican Population"] + gov2014["Estimate Cuban Population"] + gov2014["Estimate Other Hispanic or Latino"])
-#  / gov2014["Estimate Total Population"])
+changeTotalLatinXGov = ((gov2018["Mexican 2018"] + gov2018["Puerto Rican 2018"] + gov2018["Cuban 2018"] + gov2018["Other LatinX 2018"])
+ / gov2018["Total Population 2018"]) - ((gov2014["Mexican 2014"] + gov2014["Puerto Rican 2014"] + gov2014["Cuban 2014"] + gov2014["Other LatinX 2014"]) / gov2014["Total Population 2014"])
 
 #merge presidential election changes with demographic changes during those years
 
@@ -338,170 +337,210 @@ plt.title("change in total LatinX population vs change in presidential support (
 
 plt.show()
 
-# #merge governors election changes with demographic changes during those years
+#merge governors election changes with demographic changes during those years
 
-# merged_governors = pd.DataFrame({"change in democratic support" : changeDemGov, "change in republican support" : changeRepGov, "change in mexican population" : changeMexGov,
-#                                     "change in puerto rican population" : changePRGov, "change in cuban population" : changeCubanGov, "change in other LatinX population" : changeOtherLatinXGov,
-#                                     "change in total LatinX population" : changeTotalLatinXGov})
+merged_governors = pd.DataFrame({"change in democratic support" : changeDemGov, "change in republican support" : changeRepGov, "change in mexican population" : changeMexGov,
+                                    "change in puerto rican population" : changePRGov, "change in cuban population" : changeCubanGov, "change in other LatinX population" : changeOtherLatinXGov,
+                                    "change in total LatinX population" : changeTotalLatinXGov})
 
-# merged_governors = merged_governors.replace([np.inf, -np.inf], np.nan)    #replace inf values by NaN, occurs when starting value is zero
+merged_governors = merged_governors.replace([np.inf, -np.inf], np.nan)    #replace inf values by NaN, occurs when starting value is zero
 
-# merged_governors = merged_governors.fillna(0)
+merged_governors = merged_governors.fillna(0)
 
-# #plot governors election data for mexican population
+#plot governors election data for mexican population
 
-# plt.scatter(merged_governors["change in mexican population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
+plt.scatter(merged_governors["change in mexican population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
 
-# plt.scatter(merged_governors["change in mexican population"], merged_governors["change in republican support"], color = "red", label = "republican support")
+plt.scatter(merged_governors["change in mexican population"], merged_governors["change in republican support"], color = "red", label = "republican support")
 
-# mexPop = merged_governors["change in mexican population"].values.reshape(-1, 1)
+mexPop = merged_governors["change in mexican population"].values.reshape(-1, 1)
 
-# demSupport = merged_governors["change in democratic support"].values.reshape(-1, 1)
+demSupport = merged_governors["change in democratic support"].values.reshape(-1, 1)
 
-# linregDem = LinearRegression()
+linregDem = LinearRegression()
 
-# linregDem.fit(mexPop, demSupport)
+linregDem.fit(mexPop, demSupport)
 
-# Y_predMexDem = linregDem.predict(mexPop)
+Y_predMexDem = linregDem.predict(mexPop)
 
-# plt.plot(mexPop, Y_predMexDem, color='cyan', label = "democratic support trend")
+mexDemR2 = r2_score(demSupport, Y_predMexDem)
 
-# repSupport = merged_governors["change in republican support"].values.reshape(-1, 1)
+plt.figtext(.7, .73, ("democratic R² =" + "{:.8f}".format(mexDemR2)))
 
-# linregRep = LinearRegression()
+plt.plot(mexPop, Y_predMexDem, color='cyan', label = "democratic support trend")
 
-# linregRep.fit(mexPop, repSupport)
+repSupport = merged_governors["change in republican support"].values.reshape(-1, 1)
 
-# Y_predMexRep = linregRep.predict(mexPop)
+linregRep = LinearRegression()
 
-# plt.plot(mexPop, Y_predMexRep, color='lightsalmon', label = "republican support trend")
+linregRep.fit(mexPop, repSupport)
 
-# plt.legend(loc="upper right")
+Y_predMexRep = linregRep.predict(mexPop)
 
-# plt.xlabel("% point change in mexican population")
+mexRepR2 = r2_score(repSupport, Y_predMexRep)
 
-# plt.ylabel("% point change in governors political support")
+plt.figtext(.7, .71, ("republican R²=" + "{:.8f}".format(mexRepR2)))
 
-# plt.title("change in mexican population vs change in governors support (2014 - 2018)")
+plt.plot(mexPop, Y_predMexRep, color='lightsalmon', label = "republican support trend")
 
-# plt.show()
+plt.legend(loc="upper right")
 
-# #plot governors election data for puetro rican population
+plt.xlabel("% point change in mexican population")
 
-# plt.scatter(merged_governors["change in puerto rican population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
+plt.ylabel("% point change in governors political support")
 
-# plt.scatter(merged_governors["change in puerto rican population"], merged_governors["change in republican support"], color = "red", label = "republican support")
+plt.title("change in mexican population vs change in governors support (2014 - 2018)")
 
-# prPop = merged_governors["change in puerto rican population"].values.reshape(-1, 1)
+plt.show()
 
-# linregDem.fit(prPop, demSupport)
+#plot governors election data for puetro rican population
 
-# Y_predprDem = linregDem.predict(prPop)
+plt.scatter(merged_governors["change in puerto rican population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
 
-# plt.plot(prPop, Y_predprDem, color='cyan', label = "democratic support trend")
+plt.scatter(merged_governors["change in puerto rican population"], merged_governors["change in republican support"], color = "red", label = "republican support")
 
-# linregRep.fit(prPop, repSupport)
+prPop = merged_governors["change in puerto rican population"].values.reshape(-1, 1)
 
-# Y_predprRep = linregRep.predict(prPop)
+linregDem.fit(prPop, demSupport)
 
-# plt.plot(prPop, Y_predprRep, color='lightsalmon', label = "republican support trend")
+Y_predprDem = linregDem.predict(prPop)
 
-# plt.legend(loc="upper right")
+prDemR2 = r2_score(demSupport, Y_predprDem)
 
-# plt.xlabel("% point change in puerto rican population")
+plt.figtext(.7, .73, ("democratic R² =" + "{:.8f}".format(prDemR2)))
 
-# plt.ylabel("% point change in governors political support")
+plt.plot(prPop, Y_predprDem, color='cyan', label = "democratic support trend")
 
-# plt.title("change in puerto rican population vs change in governors support (2014 - 2018)")
+linregRep.fit(prPop, repSupport)
 
-# plt.show()
+Y_predprRep = linregRep.predict(prPop)
 
-# #plot governors election data for cuban population
+prRepR2 = r2_score(repSupport, Y_predprRep)
 
-# plt.scatter(merged_governors["change in cuban population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
+plt.figtext(.7, .71, ("republican R²=" + "{:.8f}".format(prRepR2)))
 
-# plt.scatter(merged_governors["change in cuban population"], merged_governors["change in republican support"], color = "red", label = "republican support")
+plt.plot(prPop, Y_predprRep, color='lightsalmon', label = "republican support trend")
 
-# cubanPop = merged_governors["change in cuban population"].values.reshape(-1, 1)
+plt.legend(loc="upper right")
 
-# linregDem.fit(cubanPop, demSupport)
+plt.xlabel("% point change in puerto rican population")
 
-# Y_predcubanDem = linregDem.predict(cubanPop)
+plt.ylabel("% point change in governors political support")
 
-# plt.plot(cubanPop, Y_predcubanDem, color='cyan', label = "democratic support trend")
+plt.title("change in puerto rican population vs change in governors support (2014 - 2018)")
 
-# linregRep.fit(cubanPop, repSupport)
+plt.show()
 
-# Y_predcubanRep = linregRep.predict(cubanPop)
+#plot governors election data for cuban population
 
-# plt.plot(cubanPop, Y_predcubanRep, color='lightsalmon', label = "republican support trend")
+plt.scatter(merged_governors["change in cuban population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
 
-# plt.legend(loc="upper right")
+plt.scatter(merged_governors["change in cuban population"], merged_governors["change in republican support"], color = "red", label = "republican support")
 
-# plt.xlabel("% point change in cuban population")
+cubanPop = merged_governors["change in cuban population"].values.reshape(-1, 1)
 
-# plt.ylabel("% point change in governors political support")
+linregDem.fit(cubanPop, demSupport)
 
-# plt.title("change in cuban population vs change in governors support (2014 - 2018)")
+Y_predcubanDem = linregDem.predict(cubanPop)
 
-# plt.show()
+cubanDemR2 = r2_score(demSupport, Y_predcubanDem)
 
-# #plot governors election data for other LatinX populations
+plt.figtext(.7, .73, ("democratic R² =" + "{:.8f}".format(cubanDemR2)))
 
-# plt.scatter(merged_governors["change in other LatinX population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
+plt.plot(cubanPop, Y_predcubanDem, color='cyan', label = "democratic support trend")
 
-# plt.scatter(merged_governors["change in other LatinX population"], merged_governors["change in republican support"], color = "red", label = "republican support")
+linregRep.fit(cubanPop, repSupport)
 
-# otherPop = merged_governors["change in other LatinX population"].values.reshape(-1, 1)
+Y_predcubanRep = linregRep.predict(cubanPop)
 
-# linregDem.fit(otherPop, demSupport)
+cubanRepR2 = r2_score(repSupport, Y_predcubanRep)
 
-# Y_predotherDem = linregDem.predict(otherPop)
+plt.figtext(.7, .71, ("republican R²=" + "{:.8f}".format(cubanRepR2)))
 
-# plt.plot(otherPop, Y_predotherDem, color='cyan', label = "democratic support trend")
+plt.plot(cubanPop, Y_predcubanRep, color='lightsalmon', label = "republican support trend")
 
-# linregRep.fit(otherPop, repSupport)
+plt.legend(loc="upper right")
 
-# Y_predotherRep = linregRep.predict(otherPop)
+plt.xlabel("% point change in cuban population")
 
-# plt.plot(otherPop, Y_predotherRep, color='lightsalmon', label = "republican support trend")
+plt.ylabel("% point change in governors political support")
 
-# plt.legend(loc="upper right")
+plt.title("change in cuban population vs change in governors support (2014 - 2018)")
 
-# plt.xlabel("% point change in other LatinX population")
+plt.show()
 
-# plt.ylabel("% point change in governors political support")
+#plot governors election data for other LatinX populations
 
-# plt.title("change in other LatinX population vs change in governors support (2014 - 2018)")
+plt.scatter(merged_governors["change in other LatinX population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
 
-# plt.show()
+plt.scatter(merged_governors["change in other LatinX population"], merged_governors["change in republican support"], color = "red", label = "republican support")
 
-# #plot governors election data for Total LatinX populations
+otherPop = merged_governors["change in other LatinX population"].values.reshape(-1, 1)
 
-# plt.scatter(merged_governors["change in total LatinX population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
+linregDem.fit(otherPop, demSupport)
 
-# plt.scatter(merged_governors["change in total LatinX population"], merged_governors["change in republican support"], color = "red", label = "republican support")
+Y_predotherDem = linregDem.predict(otherPop)
 
-# totalPop = merged_governors["change in total LatinX population"].values.reshape(-1, 1)
+otherDemR2 = r2_score(demSupport, Y_predotherDem)
 
-# linregDem.fit(totalPop, demSupport)
+plt.figtext(.7, .73, ("democratic R² =" + "{:.8f}".format(otherDemR2)))
 
-# Y_predtotalDem = linregDem.predict(totalPop)
+plt.plot(otherPop, Y_predotherDem, color='cyan', label = "democratic support trend")
 
-# plt.plot(totalPop, Y_predtotalDem, color='cyan', label = "democratic support trend")
+linregRep.fit(otherPop, repSupport)
 
-# linregRep.fit(totalPop, repSupport)
+Y_predotherRep = linregRep.predict(otherPop)
 
-# Y_predtotalRep = linregRep.predict(totalPop)
+otherRepR2 = r2_score(repSupport, Y_predotherRep)
 
-# plt.plot(totalPop, Y_predtotalRep, color='lightsalmon', label = "republican support trend")
+plt.figtext(.7, .71, ("republican R²=" + "{:.8f}".format(otherRepR2)))
 
-# plt.legend(loc="upper right")
+plt.plot(otherPop, Y_predotherRep, color='lightsalmon', label = "republican support trend")
 
-# plt.xlabel("% point change in total LatinX population")
+plt.legend(loc="upper right")
 
-# plt.ylabel("% point change in governors political support")
+plt.xlabel("% point change in other LatinX population")
 
-# plt.title("change in total LatinX population vs change in governors support (2014 - 2018)")
+plt.ylabel("% point change in governors political support")
 
-# plt.show()
+plt.title("change in other LatinX population vs change in governors support (2014 - 2018)")
+
+plt.show()
+
+#plot governors election data for Total LatinX populations
+
+plt.scatter(merged_governors["change in total LatinX population"], merged_governors["change in democratic support"], color = "blue", label = "democratic support")
+
+plt.scatter(merged_governors["change in total LatinX population"], merged_governors["change in republican support"], color = "red", label = "republican support")
+
+totalPop = merged_governors["change in total LatinX population"].values.reshape(-1, 1)
+
+linregDem.fit(totalPop, demSupport)
+
+Y_predtotalDem = linregDem.predict(totalPop)
+
+totalDemR2 = r2_score(demSupport, Y_predtotalDem)
+
+plt.figtext(.7, .73, ("democratic R² =" + "{:.8f}".format(totalDemR2)))
+
+plt.plot(totalPop, Y_predtotalDem, color='cyan', label = "democratic support trend")
+
+linregRep.fit(totalPop, repSupport)
+
+Y_predtotalRep = linregRep.predict(totalPop)
+
+totalRepR2 = r2_score(repSupport, Y_predtotalRep)
+
+plt.figtext(.7, .71, ("republican R²=" + "{:.8f}".format(totalRepR2)))
+
+plt.plot(totalPop, Y_predtotalRep, color='lightsalmon', label = "republican support trend")
+
+plt.legend(loc="upper right")
+
+plt.xlabel("% point change in total LatinX population")
+
+plt.ylabel("% point change in governors political support")
+
+plt.title("change in total LatinX population vs change in governors support (2014 - 2018)")
+
+plt.show()
