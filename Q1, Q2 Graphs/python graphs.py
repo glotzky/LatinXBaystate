@@ -183,8 +183,6 @@ plt.ylabel("% point change in presidential political support")
 
 plt.title("change in mexican population vs change in presidential support (MA 2016 - 2020)")
 
-%matplotlib qt5
-
 plt.show()
 
 #plot presidential election data for puetro rican population
